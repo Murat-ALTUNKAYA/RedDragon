@@ -16,12 +16,13 @@ namespace RedDragon.Uis
         private void Start()
         {
             GameManager.Instance.OnScoreChanged += HandleOnScoreChanged;
+            HandleOnScoreChanged();
         }
         private void OnDisable()
         {
             GameManager.Instance.OnScoreChanged -= HandleOnScoreChanged;
         }
-        private void HandleOnScoreChanged(int score)
+        private void HandleOnScoreChanged(int score = 0)
         {
             _scoreText.text = $"Score:{score}";
         }

@@ -11,8 +11,9 @@ namespace RedDragon.Controllers
     {
         Rigidbody2D _rigidbody2D;
         Jump _jump;
-        PcInputControllers _inputControllers;
+        PcInputControllers _input;
         LaunchProjectile _launcProjectile;
+        AudioSource _audioSource;
         bool _isLeftMouseClick;
 
         private void Awake()
@@ -20,16 +21,17 @@ namespace RedDragon.Controllers
             _rigidbody2D = GetComponent<Rigidbody2D>();
             _jump = GetComponent<Jump>();
             _launcProjectile = GetComponent<LaunchProjectile>();
-            _inputControllers = new PcInputControllers();
+            _audioSource = GetComponent<AudioSource>();
+            _input = new PcInputControllers();
         }
 
         private void Update()
         {
-            if (_inputControllers.LeftMouseClickDown)
+            if (_input.LeftMouseClickDown)
             {
                 _isLeftMouseClick = true;
             }
-            if (_inputControllers.RightMouseClickDown)
+            if (_input.RightMouseClickDown)
             {
                 _launcProjectile.LaunchAction();
             }
@@ -40,13 +42,9 @@ namespace RedDragon.Controllers
             if (_isLeftMouseClick)
             {
                 _jump.JumpAction(_rigidbody2D);
+                _audioSource.Play();
                 _isLeftMouseClick = false;
             }
-        }
-
-        private void OnCollisionEnter2D()
-        {
-            GameManager.Instance.RestartGame();
         }
     }
 }

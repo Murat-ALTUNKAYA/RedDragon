@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
     }
     public void RestartGame()
     {
+        score = 0;
+        Time.timeScale = 1f;
         StartCoroutine(RestartGameAsync());
     }
     private IEnumerator RestartGameAsync()
