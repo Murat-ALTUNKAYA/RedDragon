@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6146274995171626787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7862093799750192175}
+  m_Layer: 0
+  m_Name: ProjectilePosition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7862093799750192175
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6146274995171626787}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.47, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 6582507202671179133}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6582507202671179105
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,10 +39,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6582507202671179133}
-  - component: {fileID: 6582507202671179106}
   - component: {fileID: 6582507202671179107}
   - component: {fileID: 6582507202671179104}
+  - component: {fileID: 6582507202671179106}
   - component: {fileID: 6582507202671179132}
+  - component: {fileID: -9133943170599978308}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -29,24 +60,13 @@ Transform:
   m_GameObject: {fileID: 6582507202671179105}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -7.61, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 6582507202967341048}
+  - {fileID: 7862093799750192175}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6582507202671179106
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6582507202671179105}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ecc5c321b97150f4284d84d4867aeb91, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!50 &6582507202671179107
 Rigidbody2D:
   serializedVersion: 4
@@ -78,7 +98,7 @@ PolygonCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -101,6 +121,18 @@ PolygonCollider2D:
       - {x: 0.58534575, y: -0.085347764}
       - {x: 0.67703295, y: 0.07274325}
       - {x: 0.79048157, y: 0.7340687}
+--- !u!114 &6582507202671179106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6582507202671179105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ecc5c321b97150f4284d84d4867aeb91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &6582507202671179132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -114,6 +146,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 250
+--- !u!114 &-9133943170599978308
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6582507202671179105}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b472fe348fdcb25429746a1429aff3fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectilePrefab: {fileID: 216166993470627618, guid: ef121e9fe0cbb3d4293f8496d188dd97, type: 3}
+  projectileTransform: {fileID: 7862093799750192175}
+  projectileParent: {fileID: 0}
+  delayProjectile: 1
 --- !u!1 &6582507202967341049
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,7 +173,7 @@ GameObject:
   - component: {fileID: 6582507202967341048}
   - component: {fileID: 6582507202967341051}
   m_Layer: 0
-  m_Name: RedDragon
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

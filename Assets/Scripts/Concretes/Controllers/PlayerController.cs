@@ -1,3 +1,4 @@
+using RedDragon.Combat;
 using RedDragon.Movement;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,12 +12,14 @@ namespace RedDragon.Controllers
         Rigidbody2D _rigidbody2D;
         Jump _jump;
         PcInputControllers _inputControllers;
+        LaunchProjectile _launcProjectile;
         bool _isLeftMouseClick;
 
         private void Awake()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
             _jump = GetComponent<Jump>();
+            _launcProjectile = GetComponent<LaunchProjectile>();
             _inputControllers = new PcInputControllers();
         }
 
@@ -25,6 +28,10 @@ namespace RedDragon.Controllers
             if (_inputControllers.LeftMouseClickDown)
             {
                 _isLeftMouseClick = true;
+            }
+            if (_inputControllers.RightMouseClickDown)
+            {
+                _launcProjectile.LaunchAction();
             }
         }
 

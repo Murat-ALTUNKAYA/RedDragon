@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5756947748612972231
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5756947748612972281}
+  - component: {fileID: 5756947748612972230}
+  m_Layer: 0
+  m_Name: ObsticleSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5756947748612972281
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5756947748612972231}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.54, y: -2.97, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5756947748612972230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5756947748612972231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9614ee49b2efbed4cb63666623ea0a84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxSpawnTime: 3.94
+  minSpawnTime: 0.83
+  enemies:
+  - {fileID: 733282009638664464, guid: f5a492c3fb7e7a44db3e721e99c356a4, type: 3}
+  - {fileID: 8414364060833338986, guid: 9755b47049fc8994db9cd10f939da3b5, type: 3}
+  - {fileID: 194292935653589784, guid: 6571e0213e10d8a42acd04407310d54c, type: 3}
+  - {fileID: 8731668872943805964, guid: c16fa72f691e38045bf6d898a3c5118c, type: 3}

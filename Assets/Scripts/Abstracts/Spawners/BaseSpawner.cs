@@ -31,7 +31,7 @@ namespace RedDragon.Abstracts.Spawner
             }
         }
 
-        protected abstract void Spawn()
+        protected abstract void Spawn();
 
         private void ResetTimes()
         {

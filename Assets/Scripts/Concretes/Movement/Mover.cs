@@ -1,3 +1,4 @@
+using RedDragon.Enums;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,6 +11,8 @@ namespace RedDragon.Movement
     public class Mover : MonoBehaviour
     {
         [SerializeField] float moveSpeed = 5f;
+        //DirenctionEnum üzerinden enumslarý çekmek için>>
+        [SerializeField] DirectionEnum direction;
         Rigidbody2D _rigidbody2D;
         private void Awake()
         {
@@ -17,7 +20,20 @@ namespace RedDragon.Movement
         }
         private void Start()
         {
-            _rigidbody2D.velocity = Vector2.left * moveSpeed;
+            _rigidbody2D.velocity = SelectNewDirection() * moveSpeed;
+        }
+        private Vector2 SelectNewDirection()
+        {
+            Vector2 selectedDirection;
+            if (direction == DirectionEnum.Left)
+            {
+                selectedDirection = Vector2.left;
+            }
+            else
+            {
+                selectedDirection = Vector2.right;
+            }
+            return selectedDirection;
         }
     }
 }

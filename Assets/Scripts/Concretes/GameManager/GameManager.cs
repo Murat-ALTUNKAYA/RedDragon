@@ -5,8 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] int score;
     //Static verdiðimiz zaman garbage collector ile temizlenmez.
     public static GameManager Instance { get; private set; }
+
+    public event System.Action<int> OnScoreChanged;
     private void Awake()
     {
         SingletonThisGameObject();
@@ -28,6 +31,11 @@ public class GameManager : MonoBehaviour
             //Ikinci obje oluþursa yoket.
             Destroy(this.gameObject);
         }
+    }
+    public void IncreaseScore()
+    {
+        score += 10;
+        OnScoreChanged?.Invoke(score);
     }
     public void RestartGame()
     {
