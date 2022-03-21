@@ -9,11 +9,11 @@ namespace RedDragon.Uis
     {
         public void YesButtonClick()
         {
-            GameManager.Instance.RestartGame();
+            GameManager.Instance.StartGame();
         }
         public void NoButtonClick()
         {
-            Debug.Log("No clicklendi.");
+            GameManager.Instance.ReturnMenu();
         }
     }
 }

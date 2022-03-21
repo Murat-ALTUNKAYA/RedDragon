@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] int score;
+
+
     //Static verdiðimiz zaman garbage collector ile temizlenmez.
     public static GameManager Instance { get; private set; }
 
@@ -37,14 +40,26 @@ public class GameManager : MonoBehaviour
         score += 10;
         OnScoreChanged?.Invoke(score);
     }
-    public void RestartGame()
+    public void StartGame()
     {
         score = 0;
         Time.timeScale = 1f;
-        StartCoroutine(RestartGameAsync());
+        StartCoroutine(StartGameAsync());
     }
-    private IEnumerator RestartGameAsync()
+    private IEnumerator StartGameAsync()
     {
         yield return SceneManager.LoadSceneAsync("GameScene");
+    }
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
+    public void ReturnMenu()
+    {
+        StartCoroutine(ReturnMenuAsync());
+    }
+    public IEnumerator ReturnMenuAsync()
+    {
+        yield return SceneManager.LoadSceneAsync("MenuScene");
     }
 }
